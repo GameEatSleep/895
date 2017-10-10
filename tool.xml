@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build_project" name="Build Runnable Jar from Src Files">
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/tool.jar">
+            <manifest>
+                <attribute name="Main-Class" value="main.sfsu.edu.Driver"/>
+                <attribute name="Class-Path" value=". tool_lib/ant.jar tool_lib/ant-launcher.jar tool_lib/aspect.jar tool_lib/aspectjrt.jar tool_lib/aspectjtools.jar tool_lib/aspectjweaver.jar tool_lib/bcel-6.0.jar tool_lib/jshrink.jar tool_lib/org.aspectj.matcher.jar tool_lib/org.aspectj.runtime_1.8.10.201701131634.jar tool_lib/org.aspectj.runtime_1.8.10.201701131634_2.jar tool_lib/org.aspectj.runtime_1.8.10.201701131634_3.jar tool_lib/proguard.jar tool_lib/tools.jar"/>
+            </manifest>
+            <fileset dir="${dir.jarfile}/bin"/>
+        </jar>
+        <delete dir="${dir.jarfile}/tool_lib"/>
+        <mkdir dir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/ant.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/ant-launcher.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/aspect.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/aspectjrt.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/aspectjtools.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/aspectjweaver.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/bcel-6.0.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/jshrink.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/org.aspectj.matcher.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/org.aspectj.runtime_1.8.10.201701131634.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/org.aspectj.runtime_1.8.10.201701131634_2.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/org.aspectj.runtime_1.8.10.201701131634_3.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/proguard.jar" todir="${dir.jarfile}/tool_lib"/>
+        <copy file="${dir.jarfile}/req_lib/tools.jar" todir="${dir.jarfile}/tool_lib"/>
+    </target>
+</project>
